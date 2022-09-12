@@ -17,6 +17,13 @@ public class VisitorController {
         return "employee added";
     }
 
+    @CrossOrigin(origins = "*")
+    @PostMapping("/delete")
+    public String deleteEmployee(@PathVariable int id){
+        dao.deleteById(id);
+        return "employee deleted";
+    }
+
 
 
 }
