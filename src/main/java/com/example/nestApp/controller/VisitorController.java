@@ -56,12 +56,17 @@ public class VisitorController {
 
 
     //login
-//    @CrossOrigin(origins = "*")
-//    @GetMapping("/login")
-//    public String login(@RequestBody VisitorModel obj){
-//        String username=obj.getUsername();
-//        String password= obj.getPassword();
-//        if(dao.login())
+    @CrossOrigin(origins = "*")
+    @GetMapping("/login")
+    public String login(@RequestBody VisitorModel obj){
+        String username=obj.getUsername();
+        String password= obj.getPassword();
+        System.out.println(username+" "+password);
+        if(dao.login(username,password).size()>0){
+            return "{'status':'success'}";
+        }else{
+            return "{'status':'failed'}";
+        }
 
-   // }
+    }
 }

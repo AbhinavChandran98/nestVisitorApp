@@ -21,6 +21,7 @@ public interface VisitorDao extends CrudRepository<VisitorModel,Integer> {
     List<VisitorModel> search(String name,int id,int emp_code,String username,String designation,int mobile);
 
 
-    //login querry
-   // @Query(value = "SELECT `id`, `emp_code`, `name`, `mobile`,`designation` FROM `employee` WHERE `username`=?1 AND `password`=?2")
+  //  login querry
+    @Query(value = "Select * from employee where username=?1 AND password=?2",nativeQuery = true)
+    List<VisitorModel> login(String username,String password);
 }
