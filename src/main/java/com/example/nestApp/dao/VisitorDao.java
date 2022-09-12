@@ -22,5 +22,5 @@ public interface VisitorDao extends CrudRepository<VisitorModel,Integer> {
 
 
     //login querry
-    @Query(value = "SELECT `id`, `emp_code`, `name`, `mobile`,`designation` FROM `employee` WHERE `username`=?1 AND `password`=?2")
+   // @Query(value = "SELECT `id`, `emp_code`, `name`, `mobile`,`designation` FROM `employee` WHERE `username`=?1 AND `password`=?2")
 }

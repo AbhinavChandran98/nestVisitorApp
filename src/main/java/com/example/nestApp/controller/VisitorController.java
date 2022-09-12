@@ -56,12 +56,12 @@ public class VisitorController {
 
 
     //login
-    @CrossOrigin(origins = "*")
-    @GetMapping("/login")
-    public String login(@RequestBody VisitorModel obj){
-        String username=obj.getUsername();
-        String password= obj.getPassword();
-        if(dao.l)
+//    @CrossOrigin(origins = "*")
+//    @GetMapping("/login")
+//    public String login(@RequestBody VisitorModel obj){
+//        String username=obj.getUsername();
+//        String password= obj.getPassword();
+//        if(dao.login())
 
-    }
+   // }
 }
