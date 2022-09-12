@@ -3,10 +3,9 @@ package com.example.nestApp.controller;
 import com.example.nestApp.dao.EmployeeLogDao;
 import com.example.nestApp.model.EmployeeLogModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class EmployeeLogController {
@@ -20,5 +19,11 @@ public class EmployeeLogController {
     {
         dao.save(obj);
         return "sign in success";
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping("/employeeview")
+    public List<EmployeeLogModel> employeeView(){
+        return (List<EmployeeLogModel>) dao.findAll();
     }
 }
