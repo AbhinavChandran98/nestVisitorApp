@@ -24,6 +24,20 @@ public class VisitorController {
         return "employee deleted";
     }
 
+    @CrossOrigin(origins = "*")
+    @PostMapping("/update")
+    public String updateEmployee(@RequestBody VisitorModel obj){
+
+        int id=obj.getId();
+        int emp_code=obj.getEmp_code();
+        int mobile=obj.getMobile();
+        String name= obj.getName();
+        String password=obj.getPassword();
+        String username=obj.getUsername();
+        String desination=obj.getDesignation();
+        dao.updateEmployee(emp_code,mobile,name,password,username,desination,id);
+        return "updated";
+    }
 
 
 }
