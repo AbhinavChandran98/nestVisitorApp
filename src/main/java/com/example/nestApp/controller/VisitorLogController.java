@@ -5,6 +5,7 @@ import com.example.nestApp.model.VisitorLogModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -23,5 +24,15 @@ public class VisitorLogController {
     @GetMapping("/visitorlogview")
     public List<VisitorLogModel> visitorLogView(){
         return (List<VisitorLogModel>) dao.findAll();
+    }
+
+    @CrossOrigin(origins ="*")
+    @PostMapping("/visitorsignout")
+    public String visitorSignOut(@RequestBody VisitorLogModel obj)
+    {
+        String name=obj.getName();
+        Date signout=obj.getLogoutTime();
+        dao.visitorSignOut(signout,name);
+        return "signout successfull";
     }
 }
